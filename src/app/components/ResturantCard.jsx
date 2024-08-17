@@ -2,7 +2,9 @@ import React from "react";
 import { Star } from "lucide-react";
 import Button from "./Button"
 import { Plus } from 'lucide-react';
-import { IMG_CDN_URL, IMG_CDN_URL_SM } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../lib/features/cartSlice";
+import { IMG_CDN_URL, IMG_CDN_URL_SM } from "../constants/constants";
 const ResturantCard = ({
   id,
   name,
@@ -13,6 +15,28 @@ const ResturantCard = ({
   areaName,
   sla,
 }) => {
+
+  const dispatch=useDispatch()
+  const handleAdd=()=>{
+    const item = { 
+      id, 
+      name, 
+      cuisines, 
+      cloudinaryImageId, 
+      avgRating, 
+      feeDetails, 
+      areaName, 
+      sla,
+      price: feeDetails.totalFee / 10,  
+    };
+    dispatch(addItem(item))
+    if ("vibrate" in navigator) {
+      // vibration API supported
+      navigator.vibrate(50);
+    }
+    
+    }
+
   return (
     <div key={id} className='w-[300px] rounded-xl  mb-8 '>
       <picture >
@@ -29,7 +53,7 @@ const ResturantCard = ({
           
           <span className='mx-1'>{feeDetails.totalFee/10}</span>
         </p>
-       <Button text={`Add`} className="rounded-full"/>
+       <Button onClick={handleAdd} text={`Add`} className="rounded-full"/>
        
       </div>
     </div>

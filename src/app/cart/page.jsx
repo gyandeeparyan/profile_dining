@@ -1,47 +1,14 @@
-
+"use client"
 import { Heart, CircleX} from 'lucide-react'
 import Button from "../components/Button"
-
-const page = () => {
-
-    const products = [
-        {
-          id: 1,
-          name: 'Nike Air Force 1 07 LV8',
-          href: '#',
-          price: '₹47,199',
-          originalPrice: '₹48,900',
-          discount: '5% Off',
-          color: 'Orange',
-          size: '8 UK',
-          imageSrc:
-            'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png',
-        },
-        {
-          id: 2,
-          name: 'Nike Blazer Low 77 SE',
-          href: '#',
-          price: '₹1,549',
-          originalPrice: '₹2,499',
-          discount: '38% off',
-          color: 'White',
-          leadTime: '3-4 weeks',
-          size: '8 UK',
-          imageSrc:
-            'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e48d6035-bd8a-4747-9fa1-04ea596bb074/blazer-low-77-se-shoes-0w2HHV.png',
-        },
-        {
-          id: 3,
-          name: 'Nike Air Max 90',
-          href: '#',
-          price: '₹2219 ',
-          originalPrice: '₹999',
-          discount: '78% off',
-          color: 'Black',
-          imageSrc:
-            'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/dunk-high-retro-shoe-DdRmMZ.png',
-        },
-      ]
+import { useSelector ,useDispatch } from 'react-redux'
+import Image from 'next/image'
+import { IMG_CDN_URL_SM } from '../constants/constants'
+import { addItem, removeItem, clearCart, increase, decrease,} from '../lib/features/cartSlice'
+const Cart = () => {
+const dispatch=useDispatch()
+const items=useSelector((store)=>store.cart.items)
+const total=useSelector((store)=>store.cart.total)
 
 
   return (<div className="mx-auto md:px-40  px-2 bg-mainDark ">
@@ -55,14 +22,16 @@ const page = () => {
               Items in your shopping cart
             </h2>
             <ul role="list" className=" divide-y divide-dashed dark:divide-mainDark ">
-              {products.map((product, productIdx) => (
+              {items?.map((product, productIdx) => (
                 <div key={product.id} className=" ">
                   <li className="flex px-6 py-6 sm:py-6 ">
                     <div className="flex-shrink-0">
                       <img
-                        src={product.imageSrc}
-                        alt={product.name}
-                        className="sm:h-38 sm:w-38 h-24 w-24 rounded-xl object-contain object-center"
+                        width={100}
+                        height={100}
+                        src={IMG_CDN_URL_SM + product.cloudinaryImageId}
+                        alt={product?.name}
+                        className="sm:h-38 object-contain sm:w-38   rounded-xl  object-center"
                       />
                     </div>
 
@@ -77,22 +46,17 @@ const page = () => {
                             </h3>
                           </div>
                           <div className="mt-1 flex text-sm">
-                            <p className="text-sm text-gray-500">{product.color}</p>
-                            {product.size ? (
-                              <p className="ml-4 border-l border-gray-200 pl-4 text-sm text-gray-500">
-                                {product.size}
-                              </p>
-                            ) : null}
+                         
                           </div>
                           <div className="mt-1 flex items-end">
                             <p className="text-xs font-medium text-gray-500 line-through">
                               {product.originalPrice}
                             </p>
                             <p className="text-sm font-medium text-gray-900">
-                              &nbsp;&nbsp;{product.price}
+                            {product.price}
                             </p>
-                            &nbsp;&nbsp;
-                            <p className="text-sm font-medium text-green-500">{product.discount}</p>
+                           
+                           
                           </div>
                         </div>
                       </div>
@@ -100,21 +64,21 @@ const page = () => {
                   </li>
                   <div className="mb-2 flex items-center">
                     <div className="min-w-24 px-6 flex ">
-                    <Button text={"-"} className="flex h-7 text-white w-7 items-center justify-center">
+                    <Button text={"-"} onClick={()=>dispatch(decrease(product))} className="flex h-7 text-white w-7 items-center justify-center">
                        
                        </Button>
-                      <input
-                        type="text"
-                        className="mx-1 h-7 w-9 rounded-md border text-center"
-                        defaultValue={1}
-                      />
-                      <Button text={"+"} className="flex h-7 text-white w-7 items-center justify-center">
+                      <p
+                       
+                        className="mx-1 h-7 w-9 text-mainDark  text-center"
+      
+                      >{product.amount}</p>
+                      <Button text={"+"} onClick={()=>dispatch(increase(product))} className="flex h-7 text-white w-7 items-center justify-center">
                        
                       </Button>
                     </div>
                     <div className="text-sm">
-                      <Button text={<span className="flex"><CircleX size={16} className="text-white rounded-full" />
-                      <span className="text-xs ml-2 font-medium ">Remove</span></span>} className="flex  bg-red-500 text-white items-center space-x-1 px-2 py-1 ">
+                      <Button onClick={()=>dispatch(removeItem(product))} text={<span className="flex"><CircleX size={16} className="text-white rounded-full" />
+                      <span  className="text-xs ml-2 font-medium ">Remove</span></span>} className="flex  bg-red-500 text-white items-center space-x-1 px-2 py-1 ">
                         
                       </Button>
                     </div>
@@ -138,8 +102,8 @@ const page = () => {
             <div>
               <dl className=" space-y-1 px-2 py-4">
                 <div className="flex items-center justify-between">
-                  <dt className="text-sm text-gray-800">Price (3 item)</dt>
-                  <dd className="text-sm font-medium text-gray-900">₹ 52,398</dd>
+                  <dt className="text-sm text-gray-800">Price ({items.length} item)</dt>
+                  <dd className="text-sm font-medium text-gray-900">₹ {total}</dd>
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <dt className="flex items-center text-sm text-gray-800">
@@ -155,7 +119,7 @@ const page = () => {
                 </div>
                 <div className="flex items-center justify-between dark:border-mainDark border-y border-dashed py-4 ">
                   <dt className="text-base font-medium text-gray-900">Total Amount</dt>
-                  <dd className="text-base font-medium text-gray-900">₹ 48,967</dd>
+                  <dd className="text-base font-medium text-gray-900">₹ {total}</dd>
                 </div>
               </dl>
               <div className="px-2 pb-4 font-medium text-green-700">
@@ -169,4 +133,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Cart
