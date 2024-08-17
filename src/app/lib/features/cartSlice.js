@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   items: [],
   total: 0,
+  discount: 0,
+  selectedDiscount :null,
   isEmpty: true,
 };
 
@@ -41,37 +43,50 @@ const cartSlice = createSlice({
       state.items = [];
       state.total = 0;
       state.isEmpty = true;
+      state.selectedDiscount = null;
     },
     
     increase: (state, action) => {
         const { id } = action.payload;
         const cartItem = state.items.find(item => item.id === id);
         if (cartItem) {
-          state.items = state.items.map(item =>
-            item.id === id ? { ...item, amount: item.amount + 1 } : item
-          );
-          state.total += cartItem.price;
+            // Update the amount and total correctly
+            cartItem.amount += 1; // Directly increment amount
+            state.total += cartItem.price; // Update total with the item's price
         }
-      },
-      
-      decrease: (state, action) => {
+    },
+    
+    decrease: (state, action) => {
         const { id } = action.payload;
         const cartItem = state.items.find(item => item.id === id);
         if (cartItem) {
-          if (cartItem.amount > 1) {
-            state.items = state.items.map(item =>
-              item.id === id ? { ...item, amount: item.amount - 1 } : item
-            );
-            state.total -= cartItem.price;
-          } else {
-            state.items = state.items.filter(item => item.id !== id);
-            state.total -= cartItem.price;
-            if (state.items.length === 0) {
-              state.isEmpty = true;
+            if (cartItem.amount > 1) {
+                // Directly decrement amount
+                cartItem.amount -= 1; 
+                state.total -= cartItem.price; // Update total with the item's price
+            } else {
+                // Remove item and update total
+                state.items = state.items.filter(item => item.id !== id);
+                state.total -= cartItem.price; // Update total with the item's price
+                if (state.items.length === 0) {
+                    state.isEmpty = true; // Set isEmpty if no items left
+                }
             }
-          }
         }
+    },
+      
+    applyDiscount: (state, action) => {
+        const discount = action.payload;
+  
+        // Reset total to base value without discounts
+        state.total = state.items.reduce((total, item) => total + item.price * item.amount, 0);
+        
+        // Apply selected discount
+        state.selectedDiscount = discount;
+        state.discount=discount.amount*10
+        state.total -= (state.total * discount.amount) / 100;
       },
+
       
     calculateTotals: (state) => {
       let total = 0;
@@ -85,6 +100,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, clearCart, increase, decrease, calculateTotals } = cartSlice.actions;
+export const { addItem, removeItem, clearCart, increase, decrease, calculateTotals ,applyDiscount } = cartSlice.actions;
 
 export default cartSlice.reducer;
