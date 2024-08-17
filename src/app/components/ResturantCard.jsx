@@ -44,16 +44,16 @@ const ResturantCard = ({
         <img
           src={IMG_CDN_URL_SM + cloudinaryImageId}
           alt='resturant-image'
-          className='h-[200px]  w-full rounded-lg object-cover'
+          className='h-[200px]  w-full rounded-xl md:rounded-2xl object-cover'
         />
       </picture>
       <div className='py-4 flex flex-col'>
-        <p className='inline-flex mb-4 items-center text-lg line-clamp-2 '>
+        <p className='inline-flex mb-4 items-center line-clamp-1 text-lg  '>
           {name} &nbsp;{" "}
           
           <span className='mx-1'>{feeDetails.totalFee/10}</span>
         </p>
-       <Button onClick={handleAdd} text={`Add`} className="rounded-full"/>
+       <Button onClick={handleAdd} text={`Add`} className="rounded-full bg-rose-500 dark:bg-rose-500 text-white"/>
        
       </div>
     </div>

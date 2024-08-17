@@ -9,7 +9,8 @@ const ResturantListing = () => {
 const resturants=useSelector((store)=>store.resturantListing.resturants)
  
   return (
-    <div className='container md:px-32 md:py-20  mx-[60px] md:mx-[42px] grid grid-cols-1  dark:bg-mainDark dark:text-brand-beige md:grid-cols-3'>
+    <div className='container  md:px-32 py-24 md:py-20  mx-[60px] md:mx-[42px] grid grid-cols-1  dark:bg-mainDark dark:text-brand-beige md:grid-cols-3'>
+
         {resturants.map((resturant) => {
           return (
             <div key={resturant.info.id}>

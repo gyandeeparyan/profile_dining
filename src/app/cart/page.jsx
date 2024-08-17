@@ -1,6 +1,7 @@
 "use client"
-import { Heart, CircleX} from 'lucide-react'
+import { Heart, CircleX ,CircleArrowRight} from 'lucide-react'
 import Button from "../components/Button"
+import Link from "next/link"
 import { useSelector ,useDispatch } from 'react-redux'
 import Image from 'next/image'
 import { IMG_CDN_URL_SM } from '../constants/constants'
@@ -20,28 +21,28 @@ const items=useSelector((store)=>store.cart.items)
 const total=useSelector((store)=>store.cart.total)
 const discount = useSelector((store) => store.cart.discount);
 
-  return (<div className="mx-auto md:px-40  px-2 bg-mainDark ">
+  return (<div className="mx-auto md:px-40  px-8 bg-mainDark ">
     
       <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
         <h1 className="text-3xl  tracking-tight text-textDark sm:text-4xl">
           Booking details
         </h1>
         <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
-          <section aria-labelledby="cart-heading" className="rounded-3xl bg-red-200 lg:col-span-8">
+          <section aria-labelledby="cart-heading" className="md:rounded-3xl rounded-xl bg-red-200 lg:col-span-8">
             <h2 id="cart-heading" className="sr-only">
               Items in your shopping cart
             </h2>
             <ul role="list" className=" divide-y divide-dashed dark:divide-mainDark ">
               {items?.map((product, productIdx) => (
-                <div key={product.id} className=" ">
-                  <li className="flex px-6 py-6 sm:py-6 ">
+                <div key={product.id} className=" py-3">
+                  <li className="flex px-6 py-6 sm:py-4  ">
                     <div className="flex-shrink-0">
                       <img
                         width={100}
                         height={100}
                         src={IMG_CDN_URL_SM + product.cloudinaryImageId}
                         alt={product?.name}
-                        className="sm:h-38 object-contain sm:w-38   rounded-xl  object-center"
+                        className="sm:[150px] object-contain sm:w-[150px]   rounded-xl  object-center"
                       />
                     </div>
 
@@ -68,7 +69,7 @@ const discount = useSelector((store) => store.cart.discount);
                           </div>
                           <div className="text-sm mt-3">
                           <div className="min-w-24 flex ">
-                    <Button text={"-"} onClick={()=>dispatch(decrease(product))} className="flex h-7 text-white w-7 items-center justify-center">
+                    <Button text={"-"} onClick={()=>dispatch(decrease(product))} className="flex h-7 text-white bg-red-500 dark:bg-red-500 rounded-lg w-7 items-center justify-center">
                        
                        </Button>
                       <p
@@ -76,7 +77,7 @@ const discount = useSelector((store) => store.cart.discount);
                         className="mx-1 h-7 flex items-center text-mainDark  text-center"
       
                       >{product.amount} Person</p>
-                      <Button text={"+"} onClick={()=>dispatch(increase(product))} className="flex h-7 bg-emerald-500 dark:bg-emerald-500 text-white w-7 items-center justify-center">
+                      <Button text={"+"} onClick={()=>dispatch(increase(product))} className="flex h-7 bg-emerald-500 dark:bg-emerald-500 rounded-lg text-white w-7 items-center justify-center">
                        
                       </Button>
                     </div>
@@ -94,7 +95,7 @@ const discount = useSelector((store) => store.cart.discount);
                   <div className="mb-2 -mt-2 mx-6 flex items-center">
                    
                     <Button onClick={()=>dispatch(removeItem(product))} text={<span className="flex"><CircleX size={16} className="text-white rounded-full" />
-                      <span  className="text-xs ml-2 font-medium ">Remove</span></span>} className="flex  bg-red-500 text-white items-center space-x-1 px-2 py-1 ">
+                      <span  className="text-xs ml-2 font-medium ">Remove</span></span>} className="flex rounded-lg  bg-red-500 text-white items-center space-x-1 px-2 py-1 ">
                         
                       </Button>
                   
@@ -108,7 +109,7 @@ const discount = useSelector((store) => store.cart.discount);
          
           <section
             aria-labelledby="summary-heading"
-            className="mt-16 rounded-3xl bg-red-200 lg:col-span-4 lg:mt-0 lg:p-0"
+            className="mt-16 md:rounded-3xl rounded-xl bg-red-200 lg:col-span-4 lg:mt-0 lg:p-0"
           >
             <div>
             <h2
@@ -144,6 +145,16 @@ const discount = useSelector((store) => store.cart.discount);
               <div className="px-2 pb-4 font-medium text-emerald-700">
                 You will save ₹ {discount} on this order
               </div>
+              <div className="px-4 py-2">
+              <Link 
+              href={"/checkout"}
+              >
+              <Button onClick={()=>dispatch(removeItem(product))} text={<span className="flex justify-around">
+                      <span  className="text-xs ml-2 font-medium ">Checkout</span><CircleArrowRight size={16} className="text-white ml-2 rounded-full" /></span>} className="flex  bg-red-500 w-full text-white justify-center items-center rounded-full space-x-1 px-2 py-1 ">
+                        
+                      </Button>
+                      </Link>
+                      </div>
             </div>
             </div>
            

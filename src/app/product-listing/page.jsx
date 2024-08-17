@@ -3,7 +3,7 @@ import ResturantListing from '../components/ResturantListing'
 const page = () => {
   return (
     <>
-    <div className="dark:bg-mainDark">
+    <div className=" bg-backgroundLight  dark:bg-mainDark">
     <ResturantListing/>
 
     </div>

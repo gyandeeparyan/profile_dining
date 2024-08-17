@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ReduxProvider><body className={inter.className}><Navbar/>{children}<Footer/></body></ReduxProvider>
+      <ReduxProvider><body className={inter.className}><Navbar/>{children}</body></ReduxProvider>
     </html>
   );
 }
