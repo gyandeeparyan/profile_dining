@@ -55,8 +55,8 @@ const ResturantCard = ({
         />
       
       <div className='py-4 flex text-mainDark dark:text-textDark flex-col'>
-        <p className='inline-flex  mb-4 items-center line-clamp-1 text-lg  '>
-          {name} &nbsp;{" "}
+        <p className=' flex  md:flex-row mb-4 items-center line-clamp-1 text-lg  '>
+         <span> {name}</span>
           
           <span className='mx-1'>{formatPrice((feeDetails.totalFee/10),'INR', 'en-IN')}</span>
         </p>
