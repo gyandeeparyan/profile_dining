@@ -7,6 +7,7 @@ const initialState = {
   isShaking:false,
   selectedDiscount :null,
   isEmpty: true,
+  originalTotal: 0,
 };
 
 const cartSlice = createSlice({
@@ -21,7 +22,9 @@ const cartSlice = createSlice({
         state.items.push({ ...action.payload, amount: 1 });  // Initialize amount to 1 when adding a new item
       }
       state.isEmpty = false;
-      state.total += action.payload.price;  // Update total price immediately
+
+      state.originalTotal = state.items.reduce((total, item) => total + item.price * item.amount, 0);
+      state.total = state.originalTotal;   // Update total price immediately
       state.isShaking=true
     },
 
@@ -89,8 +92,10 @@ const cartSlice = createSlice({
         
         // Apply selected discount
         state.selectedDiscount = discount;
-        state.discount=discount.amount*10
-        state.total -= (state.total * discount.amount) / 100;
+        state.discount =  state.originalTotal * (discount.amount / 100); // Store the discount amount
+  
+        // Recalculate the total after applying the discount
+        state.total = state.originalTotal - (state.originalTotal * discount.amount) / 100;
       },
 
       
@@ -106,6 +111,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { endShake,addItem, removeItem, clearCart, increase, decrease, calculateTotals ,applyDiscount } = cartSlice.actions;
+export const { endShake,addItem, removeItem, clearCart, increase, decrease, calculateTotals ,applyDiscount,originalTotal } = cartSlice.actions;
 
 export default cartSlice.reducer;

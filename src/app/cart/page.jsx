@@ -20,7 +20,7 @@ const dispatch=useDispatch()
 const items=useSelector((store)=>store.cart.items)
 const total=useSelector((store)=>store.cart.total)
 const discount = useSelector((store) => store.cart.discount);
-
+const  originalTotal=useSelector((store)=>store.cart. originalTotal)
   return (<div className="mx-auto md:px-40 h-full bg-backgroundLight  px-8 dark:bg-mainDark ">
     
       <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
@@ -122,7 +122,7 @@ const discount = useSelector((store) => store.cart.discount);
               <dl className=" space-y-1 px-1 py-2">
                 <div className="flex items-center justify-between">
                   <dt className="text-sm text-gray-800">Price ({items.length} item)</dt>
-                  <dd className="text-sm font-medium text-gray-900">₹ {total}</dd>
+                  <dd className="text-sm font-medium text-gray-900">₹ { originalTotal}</dd>
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <dt className="flex items-center text-sm text-gray-800">
