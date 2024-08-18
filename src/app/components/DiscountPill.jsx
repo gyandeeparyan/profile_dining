@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch ,useSelector} from 'react-redux';
-import { applyDiscount } from '../lib/features/cartSlice';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { applyDiscount } from "../lib/features/cartSlice";
 
 const DiscountPill = () => {
-  const selectedDiscount=useSelector((store)=>store.cart.selectedDiscount)
+  const selectedDiscount = useSelector((store) => store.cart.selectedDiscount);
   const dispatch = useDispatch();
   const discounts = [
     { id: 1, code: "RAKHI10", amount: 10 }, // Example discount
@@ -20,10 +20,15 @@ const DiscountPill = () => {
         <button
           key={discount.id}
           onClick={() => handleDiscountClick(discount)}
-          className={`rounded-full text-sm px-3 py-1 mx-1 mb-6 text-mainDark border-[1px] border-mainDark ${
-            selectedDiscount?.id === discount.id ? "bg-emerald-500 font-bold border-emerald-500 dark:bg-emerald-500 dark:border-emerald-500" : ""
-          }`}
-        >
+          className={`rounded-full text-sm px-3 py-1 mx-1 mb-6 text-mainDark border-[1px] border-emerald-900 ${
+            selectedDiscount?.id === discount.id
+              ? "bg-emerald-500 !border-emerald-500 font-bold"
+              : ""
+          } dark:${
+            selectedDiscount?.id === discount.id
+              ? "bg-emerald-500 !border-emerald-500 font-bold"
+              : ""
+          }`}>
           {discount.code}
         </button>
       ))}

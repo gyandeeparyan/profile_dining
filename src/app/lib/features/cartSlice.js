@@ -4,6 +4,7 @@ const initialState = {
   items: [],
   total: 0,
   discount: 0,
+  isShaking:false,
   selectedDiscount :null,
   isEmpty: true,
 };
@@ -21,6 +22,11 @@ const cartSlice = createSlice({
       }
       state.isEmpty = false;
       state.total += action.payload.price;  // Update total price immediately
+      state.isShaking=true
+    },
+
+    endShake: (state) => {
+      state.isShaking = false;  // Reset the shake state
     },
     
     removeItem: (state, action) => {
@@ -100,6 +106,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, clearCart, increase, decrease, calculateTotals ,applyDiscount } = cartSlice.actions;
+export const { endShake,addItem, removeItem, clearCart, increase, decrease, calculateTotals ,applyDiscount } = cartSlice.actions;
 
 export default cartSlice.reducer;
