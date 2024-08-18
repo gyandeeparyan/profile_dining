@@ -5,6 +5,7 @@ import { Plus } from 'lucide-react';
 import Image from "next/image"
 import { useDispatch,useSelector } from "react-redux";
 import { addItem } from "../lib/features/cartSlice";
+import { formatPrice } from '../lib/utils'
 import { IMG_CDN_URL, IMG_CDN_URL_SM } from "../constants/constants";
 const ResturantCard = ({
   id,
@@ -57,7 +58,7 @@ const ResturantCard = ({
         <p className='inline-flex  mb-4 items-center line-clamp-1 text-lg  '>
           {name} &nbsp;{" "}
           
-          <span className='mx-1'>{feeDetails.totalFee/10}</span>
+          <span className='mx-1'>{formatPrice((feeDetails.totalFee/10),'INR', 'en-IN')}</span>
         </p>
        <Button onClick={handleAdd} text={`Add`} className="rounded-full bg-rose-500 dark:bg-rose-500 text-white"/>
        

@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { IMG_CDN_URL_SM } from '../constants/constants'
 import DiscountPill from "../components/DiscountPill"
 import EmptyCart from "../components/EmptyCart"
+import { formatPrice } from '../lib/utils'
 import { addItem, removeItem, clearCart, increase, decrease,} from '../lib/features/cartSlice'
 const Cart = () => {
 
@@ -64,7 +65,7 @@ const isEmpty=useSelector((store)=>store.cart.isEmpty)
                           <div className="mt-1 flex items-end">
                           
                             <p className="text-sm font-medium text-gray-900">
-                            {product.price}
+                            {formatPrice(product.price, 'INR', 'en-IN')}
                             </p>
                            
                            
@@ -124,13 +125,13 @@ const isEmpty=useSelector((store)=>store.cart.isEmpty)
               <dl className=" space-y-1 px-1 py-2">
                 <div className="flex items-center justify-between">
                   <dt className="text-sm text-gray-800">Price ({items.length} item)</dt>
-                  <dd className="text-sm font-medium text-gray-900">₹ { originalTotal}</dd>
+                  <dd className="text-sm font-medium text-gray-900">  {formatPrice(originalTotal, 'INR', 'en-IN')}</dd>
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <dt className="flex items-center text-sm text-gray-800">
                     <span>Discount</span>
                   </dt>
-                  <dd className="text-sm font-medium text-emerald-700">- ₹ {discount}</dd>
+                  <dd className="text-sm font-medium text-emerald-700">-   {formatPrice(discount, 'INR', 'en-IN')}</dd>
                 </div>
                 <div className="flex items-center justify-between py-4">
                   <dt className="flex text-sm text-gray-800">
@@ -141,17 +142,17 @@ const isEmpty=useSelector((store)=>store.cart.isEmpty)
                 <DiscountPill  />
                 <div className="flex items-center justify-between border-mainDark border-y border-dashed py-4 ">
                   <dt className="text-base font-medium text-gray-900">Total Amount</dt>
-                  <dd className="text-base font-medium text-gray-900">₹ {total}</dd>
+                  <dd className="text-base font-medium text-gray-900">  {formatPrice(total, 'INR', 'en-IN')}</dd>
                 </div>
               </dl>
               <div className="px-1 pb-4 font-medium text-emerald-700">
-                You will save ₹ {discount} on this order
+                You will save   {formatPrice(discount, 'INR', 'en-IN')} on this order
               </div>
               <div className="px-4 pb-4">
               <Link 
               href={"/checkout"}
               >
-              <Button onClick={()=>dispatch(removeItem(product))} text={<span className="flex justify-around">
+              <Button  text={<span className="flex justify-around">
                       <span  className="md:text-xs text-lg ml-2 font-medium ">Checkout</span></span>} className="flex  bg-red-500 w-full text-white justify-center items-center rounded-full space-x-1 px-4  py-2 ">
                         
                       </Button>
