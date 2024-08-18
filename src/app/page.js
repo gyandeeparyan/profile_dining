@@ -6,7 +6,7 @@ export default function Home() {
   const session = true;
 
   return (
-    <main className='flex-grow  flex flex-col-reverse  dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-4 md:px-36 py-24  bg-backgroundLight dark:bg-backgroundDark '>
+    <main className='flex-grow h-screen  flex flex-col-reverse text-mainDark dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-4 md:px-36 py-24  bg-backgroundLight dark:bg-backgroundDark '>
       <section className='text-left mb-8 mx-6 '>
         <h1 className='text-3xl md:text-7xl md:w-[650px]   font-semibold'>
           dive into the world of premium dining experience
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className='bg-red-100 dark:bg-red-100 mx-5 mb-10 rounded-3xl'>
+      <div className='bg-red-100 md:bg-red-200 dark:bg-red-100 mx-5 mb-10 rounded-3xl'>
         <Image
           src={"https://illustrations.popsy.co/red/woman-eating-salad.svg"}
           alt='a man messaging'

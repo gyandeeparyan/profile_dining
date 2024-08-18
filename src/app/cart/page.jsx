@@ -1,5 +1,5 @@
 "use client"
-import { Heart, CircleX ,CircleArrowRight} from 'lucide-react'
+import { CircleX ,} from 'lucide-react'
 import Button from "../components/Button"
 import Link from "next/link"
 import { useSelector ,useDispatch } from 'react-redux'
@@ -21,28 +21,28 @@ const items=useSelector((store)=>store.cart.items)
 const total=useSelector((store)=>store.cart.total)
 const discount = useSelector((store) => store.cart.discount);
 
-  return (<div className="mx-auto md:px-40  px-8 bg-mainDark ">
+  return (<div className="mx-auto md:px-40 h-full bg-backgroundLight  px-8 dark:bg-mainDark ">
     
       <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
-        <h1 className="text-3xl  tracking-tight text-textDark sm:text-4xl">
+        <h1 className="text-3xl  tracking-tight text-mainDark dark:text-textDark sm:text-4xl">
           Booking details
         </h1>
         <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
-          <section aria-labelledby="cart-heading" className="md:rounded-3xl rounded-xl bg-red-200 lg:col-span-8">
+          <section aria-labelledby="cart-heading" className="md:rounded-2xl rounded-xl bg-red-200 lg:col-span-8">
             <h2 id="cart-heading" className="sr-only">
               Items in your shopping cart
             </h2>
-            <ul role="list" className=" divide-y divide-dashed dark:divide-mainDark ">
+            <ul role="list" className=" divide-y divide-dashed divide-mainDark ">
               {items?.map((product, productIdx) => (
                 <div key={product.id} className=" py-3">
                   <li className="flex px-6 py-6 sm:py-4  ">
                     <div className="flex-shrink-0">
-                      <img
+                      <Image
                         width={100}
                         height={100}
                         src={IMG_CDN_URL_SM + product.cloudinaryImageId}
                         alt={product?.name}
-                        className="sm:[150px] object-contain sm:w-[150px]   rounded-xl  object-center"
+                        className="  object-contain sm:w-[150px] md:w-[110px]   rounded-xl  object-center"
                       />
                     </div>
 
@@ -109,17 +109,17 @@ const discount = useSelector((store) => store.cart.discount);
          
           <section
             aria-labelledby="summary-heading"
-            className="mt-16 md:rounded-3xl rounded-xl bg-red-200 lg:col-span-4 lg:mt-0 lg:p-0"
+            className="mt-16 md:rounded-2xl rounded-xl bg-red-200 lg:col-span-4 lg:mt-0 lg:p-0"
           >
             <div>
             <h2
               id="summary-heading"
-              className=" border-b border-gray-200 dark:border-mainDark px-4 py-3 text-lg font-medium text-gray-900 sm:p-4"
+              className=" border-b border-mainDark px-4 py-3 text-lg font-medium text-gray-900 sm:p-4"
             >
               Price Details
             </h2>
-            <div>
-              <dl className=" space-y-1 px-2 py-4">
+            <div className='px-3 '>
+              <dl className=" space-y-1 px-1 py-2">
                 <div className="flex items-center justify-between">
                   <dt className="text-sm text-gray-800">Price ({items.length} item)</dt>
                   <dd className="text-sm font-medium text-gray-900">₹ {total}</dd>
@@ -137,20 +137,20 @@ const discount = useSelector((store) => store.cart.discount);
                 
                 </div>
                 <DiscountPill  />
-                <div className="flex items-center justify-between dark:border-mainDark border-y border-dashed py-4 ">
+                <div className="flex items-center justify-between border-mainDark border-y border-dashed py-4 ">
                   <dt className="text-base font-medium text-gray-900">Total Amount</dt>
                   <dd className="text-base font-medium text-gray-900">₹ {total}</dd>
                 </div>
               </dl>
-              <div className="px-2 pb-4 font-medium text-emerald-700">
+              <div className="px-1 pb-4 font-medium text-emerald-700">
                 You will save ₹ {discount} on this order
               </div>
-              <div className="px-4 py-2">
+              <div className="px-4 pb-4">
               <Link 
               href={"/checkout"}
               >
               <Button onClick={()=>dispatch(removeItem(product))} text={<span className="flex justify-around">
-                      <span  className="text-xs ml-2 font-medium ">Checkout</span><CircleArrowRight size={16} className="text-white ml-2 rounded-full" /></span>} className="flex  bg-red-500 w-full text-white justify-center items-center rounded-full space-x-1 px-2 py-1 ">
+                      <span  className="md:text-xs text-lg ml-2 font-medium ">Checkout</span></span>} className="flex  bg-red-500 w-full text-white justify-center items-center rounded-full space-x-1 px-4  py-2 ">
                         
                       </Button>
                       </Link>

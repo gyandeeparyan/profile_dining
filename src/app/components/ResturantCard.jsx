@@ -2,7 +2,7 @@ import React from "react";
 import { Star } from "lucide-react";
 import Button from "./Button"
 import { Plus } from 'lucide-react';
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { addItem } from "../lib/features/cartSlice";
 import { IMG_CDN_URL, IMG_CDN_URL_SM } from "../constants/constants";
 const ResturantCard = ({
@@ -17,6 +17,7 @@ const ResturantCard = ({
 }) => {
 
   const dispatch=useDispatch()
+  const isShaking = useSelector((state) => state.cart.isShaking);
   const handleAdd=()=>{
     const item = { 
       id, 
@@ -47,8 +48,8 @@ const ResturantCard = ({
           className='h-[200px]  w-full rounded-xl md:rounded-2xl object-cover'
         />
       </picture>
-      <div className='py-4 flex flex-col'>
-        <p className='inline-flex mb-4 items-center line-clamp-1 text-lg  '>
+      <div className='py-4 flex text-mainDark dark:text-textDark flex-col'>
+        <p className='inline-flex  mb-4 items-center line-clamp-1 text-lg  '>
           {name} &nbsp;{" "}
           
           <span className='mx-1'>{feeDetails.totalFee/10}</span>

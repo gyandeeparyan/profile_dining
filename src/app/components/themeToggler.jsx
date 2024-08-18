@@ -16,8 +16,8 @@ const ThemeToggler = () => {
   }, [isDark]);
 
   return (
-    <button className="mr-4" onClick={() => dispatch(toggleTheme())}>
-     {isDark ? <Sun  /> : <Moon  />}
+    <button className="md:mr-4 " onClick={() => dispatch(toggleTheme())}>
+     {isDark ? <Sun color="#1f2937" /> : <Moon color="#1f2937" />}
     </button>
   );
 };
