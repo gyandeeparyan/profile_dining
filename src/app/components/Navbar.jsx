@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "./Button";
 import CartIcon from "./CartIcon";
 import Link from "next/link";
+import ThemeToggler from "@/app/components/themeToggler"
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -43,10 +44,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div class='hidden  lg:flex lg:items-center '>
+        <ThemeToggler />
           <Link href={"/cart"}> 
           <CartIcon className='mr-2 ' />
           </Link>
-        
+       
         </div>
       
       </div>

@@ -1,43 +1,43 @@
 'use client'
 import React from 'react';
 import Link from "next/link";
-import { Menu,Home, X,  Utensils ,IndianRupee, MessageSquareText,Info,ShoppingCart } from 'lucide-react';
+import { Menu,Home, X, Sun,Moon,  Utensils ,IndianRupee, MessageSquareText,Info,ShoppingCart } from 'lucide-react';
 import CartIcon from "./CartIcon"
+import { useSelector,useDispatch } from 'react-redux';
+import { toggleTheme } from '../lib/features/appSlice';
+import ThemeToggler from "@/app/components/themeToggler"
 
 
-const menuItems = [
-    {
-        name: 'Home',
-        href: '/',
-       
-        icon: <Home  />,
-        
-        
-    },
-    {
-        name: 'Resturants',
-        href: '/product-listing',
-       
-        icon: < Utensils />,
-        
-    },
-    {
-        name: 'About',
-        href: '/about',
-       
-        icon: <Info />,
-        
-    },
-    {
-        name: 'cart',
-        href: '/cart',
-       
-        icon: <CartIcon />,
-        
-    },
-];
 
  function NavbarMobile() {
+    const isDark=useSelector((store)=>store.app.isDark)
+    const dispatch=useDispatch()
+    const menuItems = [
+        {
+            name: 'Home',
+            href: '/',
+            icon: <Home />,
+        },
+        {
+            name: 'Restaurants',
+            href: '/product-listing',
+            icon: <Utensils />,
+        },
+        {
+            name: 'Theme',
+            href: '',
+            icon: <ThemeToggler/>, 
+        },
+        {
+            name: 'Cart',
+            href: '/cart',
+            icon: <CartIcon />,
+        },
+    ];
+
+
+
+
     return (
         <div className="sticky md:hidden z-50 bottom-0   bg-red-300 dark:bg-mainDark text-textLight dark:text-textDark w-full ">
             <div className="mx-auto  flex max-w-7xl items-center justify-between my-3 px-4 py-2 sm:px-6 lg:px-8">
