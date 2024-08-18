@@ -6,6 +6,7 @@ import { useSelector ,useDispatch } from 'react-redux'
 import Image from 'next/image'
 import { IMG_CDN_URL_SM } from '../constants/constants'
 import DiscountPill from "../components/DiscountPill"
+import EmptyCart from "../components/EmptyCart"
 import { addItem, removeItem, clearCart, increase, decrease,} from '../lib/features/cartSlice'
 const Cart = () => {
 
@@ -21,7 +22,8 @@ const items=useSelector((store)=>store.cart.items)
 const total=useSelector((store)=>store.cart.total)
 const discount = useSelector((store) => store.cart.discount);
 const  originalTotal=useSelector((store)=>store.cart. originalTotal)
-  return (<div className="mx-auto md:px-40 h-full bg-backgroundLight  px-8 dark:bg-mainDark ">
+const isEmpty=useSelector((store)=>store.cart.isEmpty)
+  return isEmpty?<EmptyCart/> :(<div className="mx-auto md:px-40 h-full bg-backgroundLight  px-8 dark:bg-mainDark ">
     
       <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
         <h1 className="text-3xl  tracking-tight text-mainDark dark:text-textDark sm:text-4xl">

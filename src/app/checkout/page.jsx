@@ -19,6 +19,7 @@ export default function Checkout() {
       </div>
       <p className=" flex items-center">
         <span className="sr-only">Order Placed Successfully</span>
+        <span className="dark:text-textDark text-mainDark">try eating quietly</span>
         <span className=" ml-4 animate-ping text-green-600 font-bold dark:text-emerald-400"><CircleCheck/></span>
       </p>
     </main>
