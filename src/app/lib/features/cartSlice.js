@@ -114,6 +114,12 @@ const cartSlice = createSlice({
         state.originalTotal - (state.originalTotal * discount.amount) / 100;
     },
 
+    resetDiscount: (state) => {
+      state.discount = 0;
+      state.selectedDiscount = null;
+      state.total = state.originalTotal; // Reset total to original amount
+    },
+
     calculateTotals: (state) => {
       let total = 0;
 
@@ -128,6 +134,7 @@ const cartSlice = createSlice({
 });
 
 export const {
+  resetDiscount,
   endShake,
   addItem,
   removeItem,

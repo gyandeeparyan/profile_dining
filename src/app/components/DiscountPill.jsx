@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { applyDiscount } from "../lib/features/cartSlice";
+import { applyDiscount, resetDiscount } from '../lib/features/cartSlice';
 
 const DiscountPill = () => {
   const selectedDiscount = useSelector((store) => store.cart.selectedDiscount);
@@ -19,6 +19,7 @@ const DiscountPill = () => {
       {discounts.map((discount) => (
         <button
           key={discount.id}
+          onBlur={()=>dispatch(resetDiscount())}
           onClick={() => handleDiscountClick(discount)}
           className={`rounded-full text-sm px-3 py-1 mx-1 mb-6 text-mainDark border-[1px] border-emerald-900 ${
             selectedDiscount?.id === discount.id
