@@ -2,13 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./components/Button";
+import './globals.css';
 export default function Home() {
   const session = true;
 
   return (
-    <main className='flex-grow h-screen  flex flex-col-reverse text-mainDark dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-4 md:px-36 py-24  bg-backgroundLight dark:bg-backgroundDark '>
+    <main className='h-screen  flex flex-col-reverse text-mainDark dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-4 md:px-36   bg-backgroundLight dark:bg-backgroundDark '>
       <section className='text-left mb-8 mx-6 '>
-        <h1 className='text-3xl md:text-7xl md:w-[650px]   font-semibold'>
+        <h1 className='text-3xl md:text-7xl md:w-[650px] text-gradient-light dark:text-gradient-dark  font-semibold'>
           dive into the world of premium dining experience
         </h1>
         <p className='mt-3 md:mt-5 text-base text-rose-700 dark:text-rose-300 md:text-lg md:w-[250px]'>

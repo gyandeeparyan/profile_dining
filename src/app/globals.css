@@ -37,23 +37,20 @@
   animation: shake 0.3s ease-in-out; /* Shorter duration for more intensity */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body:not(.dark) .text-gradient-light {
+  background: linear-gradient(to right, #f43f5e 0%, #330867 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Dark mode gradient */
+.dark .text-gradient-dark {
+  background: linear-gradient(to right, #f43f5e 0%, #fbcfe8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+
 
 @layer utilities {
   .text-balance {

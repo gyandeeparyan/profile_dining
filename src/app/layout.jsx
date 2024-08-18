@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       <head>
       <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
-      <ReduxProvider><body className={inter.className}><Navbar/>{children}<NavbarMobile/></body></ReduxProvider>
+      <ReduxProvider><body className={`${inter.className} bg-rose-100 dark:bg-mainDark`}><Navbar/>{children}<NavbarMobile/></body></ReduxProvider>
     </html>
   );
 }

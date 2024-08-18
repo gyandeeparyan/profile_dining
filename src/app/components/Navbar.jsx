@@ -25,18 +25,19 @@ const Navbar = () => {
             </li>
             <li>
               <Link
+                href='/product-listing'
+                class='text-sm font-semibold text-gray-800 hover:text-gray-900'>
+                Resturants
+              </Link>
+            </li>
+            <li>
+              <Link
                 href='/about'
                 class='text-sm font-semibold text-gray-800 hover:text-gray-900'>
                 About
               </Link>
             </li>
-            <li>
-              <Link
-                href='/contact'
-                class='text-sm font-semibold text-gray-800 hover:text-gray-900'>
-                Contact
-              </Link>
-            </li>
+           
           </ul>
         </div>
         <div class='hidden  lg:flex lg:items-center '>
