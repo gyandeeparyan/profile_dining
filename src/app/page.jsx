@@ -20,7 +20,7 @@ export default function Home() {
             <Button text={"Explore"} className=' rounded-lg mt-6  border-[1px] !border-rose-400 bg-rose-400 text-white md:mt-10'></Button>
           </Link>
           <Link href='/about'>
-            <Button text={"Learn more"} className=' rounded-lg mt-6 !bg-transparent border-[1px] !border-rose-400  text-rose-400 md:mt-10'></Button>
+            <Button text={"Learn more"} className=' rounded-lg mt-6 !bg-transparent border-[1px] !border-rose-400  !text-rose-400 md:mt-10'></Button>
           </Link>
         </div>
       </section>
