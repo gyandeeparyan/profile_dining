@@ -27,7 +27,9 @@ export default function Home() {
           src={"https://illustrations.popsy.co/red/woman-eating-salad.svg"}
           alt='a man messaging'
           width={500}
-          height={700}></Image>
+          height={700}
+          priority
+          ></Image>
       </div>
     </main>
   );

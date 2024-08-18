@@ -12,6 +12,7 @@ export default function Checkout() {
 
       <div className=' bg-red-200 dark:bg-red-100 mx-5 mb-10 rounded-3xl'>
         <Image
+          priority
           src={"https://illustrations.popsy.co/red/chef-serving-chicken.svg"}
           alt='a man messaging'
           width={300}

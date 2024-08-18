@@ -15,7 +15,9 @@ import Button from "../components/Button";
           src={"https://illustrations.popsy.co/red/cooking-soup.svg"}
           alt='a man messaging'
           width={300}
-          height={700}></Image>
+          height={700}
+          priority
+          ></Image>
       </div>
       <p className=" flex items-center">
         <span className="sr-only">cart is empty</span>
