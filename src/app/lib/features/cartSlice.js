@@ -71,6 +71,7 @@ const cartSlice = createSlice({
         // Update the amount and total correctly
         cartItem.amount += 1; // Directly increment amount
         state.total += cartItem.price; // Update total with the item's price
+        state.originalTotal+=cartItem.price
       }
     },
 
@@ -82,10 +83,12 @@ const cartSlice = createSlice({
           // Directly decrement amount
           cartItem.amount -= 1;
           state.total -= cartItem.price; // Update total with the item's price
+          state.originalTotal-=cartItem.price
         } else {
           // Remove item and update total
           state.items = state.items.filter((item) => item.id !== id);
           state.total -= cartItem.price; // Update total with the item's price
+          state.originalTotal-=cartItem.price
           if (state.items.length === 0) {
             state.isEmpty = true; // Set isEmpty if no items left
           }
@@ -116,6 +119,7 @@ const cartSlice = createSlice({
 
       state.items.forEach((item) => {
         total += item.price * item.amount; // Calculate total price based on amount
+        
       });
 
       state.total = total;
