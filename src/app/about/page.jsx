@@ -46,6 +46,46 @@ const contactData = [
        
       ];
 
+      const creditsData = [
+        {
+          id: 1,
+          icon: <AtSign className="inline"/>,
+          title: "email",
+          link: "https://profile.fyi/gyan",
+          desc: "Popsy Illustraions"
+        },
+       
+        {
+          id: 2,
+          icon: <AtSign className="inline"  />,
+          title: "phone",
+          link: "https://peerlist.io/gyandeeparyan/",
+          desc: "Swiggy API"
+        },
+        {
+          id: 8,
+          icon: <Linkedin/>,
+          title: "linkdin",
+          link: "https://www.linkedin.com/in/gyandeep-aryan-6a7509176/",
+          desc: "gyandeep-aryan-6a7509176"
+        },
+        {
+          id: 3,
+          icon: <AtSign className="inline" />,
+          title: "twitter",
+          link: "gyandeeeparyan.dev@gmail.com",
+          desc: "gyandeeeparyan.dev@gmail.com"
+        },
+        {
+          id: 4,
+          icon: <Github />,
+          title: "github",
+          link: "https://github.com/gyandeeparyan",
+          desc: "gyandeeparyan"
+        },
+       
+      ];
+
 
   return (
     <div className='px-8 md:px-40 pt-24'>
