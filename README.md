@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a web app built as a part of hiring assignment given by [Profile.fyi](https://profile.fyi/gyan) .
+
+Lighthouse Report of this app . Imroved accesibility score from 79 to 91 
+
+<img alt"seo report" src= "https://res.cloudinary.com/dzbmc0pit/image/upload/v1724043512/loabaojaupnzuc6hck0a.png"/>
 
 ## Getting Started
 
