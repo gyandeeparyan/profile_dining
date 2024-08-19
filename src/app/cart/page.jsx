@@ -38,7 +38,7 @@ const Cart = () => {
         </h1>
         <div className='mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16'>
           <section
-            className=""
+            
             aria-labelledby='cart-heading'
             className='md:rounded-2xl rounded-xl -mt-4  lg:col-span-8'>
             <h2 id='cart-heading' className='sr-only'>
