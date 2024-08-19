@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import NavbarMobile from "./components/NavbarMobile";
-import Footer from "./components/Footer";
+
 import { ReduxProvider } from "./redux-provider";
 const inter = Inter({ subsets: ["latin"] });
 
