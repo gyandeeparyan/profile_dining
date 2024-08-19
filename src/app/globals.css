@@ -10,25 +10,37 @@
   --accent-color-light: 174, 42%, 51%;
   --highlight-color-light: 42, 100%, 70%;
   --text-color-light: 0, 0%, 20%;
-  --background-color-light: 355.6,100%,94.7%;
-  --button-color-light: 204, 51%, 78%;
+  --background-color-light: 355.6, 100%, 94.7%;
+  --button-color-light: 0, 100%, 67.6%;
   --card-color-dark: 175, 50%, 78%;
   --main-color-dark: 210, 8%, 10%;
   --accent-color-dark: 174, 42%, 51%;
-  --highlight-color-dark:3, 50%, 78%;
+  --highlight-color-dark: 3, 50%, 78%;
   --text-color-dark: 0, 96%, 89%;
   --background-color-dark: 0, 0%, 12%;
-  --button-color-dark:	0, 100%, 68%;
+  --button-color-dark: 0, 100%, 68%;
 }
-
+html,
+body {
+  height: 100%;
+  margin: 0; /* Remove default margin */
+}
 @keyframes shake {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  10%, 30%, 50%, 70%, 90% {
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     transform: translateX(-2px);
   }
-  20%, 40%, 60%, 80% {
+  20%,
+  40%,
+  60%,
+  80% {
     transform: translateX(2px);
   }
 }
@@ -49,8 +61,6 @@ body:not(.dark) .text-gradient-light {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-
 
 @layer utilities {
   .text-balance {

@@ -7,7 +7,7 @@ export default function Home() {
   const session = true;
 
   return (
-    <main className='h-screen  flex flex-col-reverse text-mainDark dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-4 md:px-36   bg-backgroundLight dark:bg-backgroundDark '>
+    <main className='h-full  flex flex-col-reverse text-mainDark dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-4 md:px-36   bg-backgroundLight dark:bg-backgroundDark '>
       <section className='text-left mb-8 mx-6 '>
         <h1 className='text-3xl md:text-7xl md:w-[650px] text-gradient-light dark:text-gradient-dark  font-semibold'>
           dive into the world of premium dining experience
@@ -20,7 +20,8 @@ export default function Home() {
             <Button text={"Explore"} className=' rounded-lg mt-6  border-[1px] !border-rose-400 bg-rose-400 text-white md:mt-10'></Button>
           </Link>
           <Link href='/about'>
-            <Button text={"Learn more"} className=' rounded-lg mt-6 !bg-transparent border-[1px] !border-rose-400  !text-rose-400 md:mt-10'></Button>
+            
+            <Button aria-label="learn more" text={"Learn more"} className=' rounded-lg mt-6 !bg-transparent border-[1px] !border-rose-400  !text-rose-400 md:mt-10'></Button>
           </Link>
         </div>
       </section>
