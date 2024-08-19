@@ -172,7 +172,7 @@ const Cart = () => {
                           </span>
                         </span>
                       }
-                      className='flex  bg-red-500 w-full text-white justify-center items-center rounded-full space-x-1 px-4  py-2 '></Button>
+                      className='flex  bg-red-500 w-full text-white justify-center items-center rounded-xl space-x-1 px-4  py-2 '></Button>
                   </Link>
                 </div>
               </div>

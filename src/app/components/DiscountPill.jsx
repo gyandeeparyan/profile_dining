@@ -21,7 +21,7 @@ const DiscountPill = () => {
           key={discount.id}
           onBlur={()=>dispatch(resetDiscount())}
           onClick={() => handleDiscountClick(discount)}
-          className={`rounded-full text-sm px-3 py-1 mx-1 mb-6 text-mainDark border-[1px] border-emerald-900 ${
+          className={`rounded-lg text-sm px-4 py-2 md:px-3 md:py-1 mx-1 mb-6 text-mainDark border-[1px] border-emerald-900 ${
             selectedDiscount?.id === discount.id
               ? "bg-emerald-500 !border-emerald-500 font-bold"
               : ""
