@@ -40,14 +40,14 @@ function NavbarMobile() {
   ];
 
   return (
-    <div className='sticky md:hidden z-50 bottom-0 bg-buttonLight text-textLight w-full'>
-      <div className='mx-auto flex max-w-7xl items-center justify-between my-3 px-4 py-2 sm:px-6 lg:px-8'>
+    <div className='fixed md:hidden z-50 bottom-0 bg-buttonLight text-textLight w-full'>
+      <div className='mx-auto flex max-w-7xl items-center justify-between my-2 px-4   lg:px-8'>
         {menuItems.map((item) => (
           <Link
             key={item.name}
             href={item.href}
             aria-label={item.ariaLabel} // Ensures the entire link is described
-            className={`flex-col py-2 px-4 rounded-2xl text-center justify-center items-center
+            className={`flex-col py-2 px-5 rounded-3xl text-center justify-center items-center
              ${
                pathname === item.href
                  ? "bg-rose-200"

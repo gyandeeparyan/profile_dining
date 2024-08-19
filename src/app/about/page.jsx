@@ -46,7 +46,7 @@ const contactData = [
        
       ];
 
-      const creditsData = [
+const creditsData = [
         {
           id: 1,
           icon: <AtSign className="inline"/>,
@@ -88,8 +88,8 @@ const contactData = [
 
 
   return (
-    <div className='px-8 md:px-40 pt-24'>
-      <div className='bg-rose-200  dark:border-[0.5px] border-rose-300 dark:bg-mainDark rounded-xl flex flex-col md:flex-row gap-5 justify-between p-8'>
+    <div className='px-5 md:px-40 pt-24'>
+      <div className='bg-rose-200  dark:border-[0.5px] border-rose-300 dark:bg-mainDark rounded-xl flex flex-col md:flex-row gap-5 justify-between md:p-8'>
         {/* text description  */}
         <div className=' flex flex-col justify-center  items-center gap-4 p-2 md:max-w-[90%]'>
           <p className="m-2  text-mainDark dark:text-rose-200">

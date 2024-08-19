@@ -24,9 +24,9 @@ const CartIcon = ({className}) => {
 
   const cartItems = useSelector((store)=>store.cart.items);
   return (
-    <div className={`flex py-1  cursor-pointer ${isShaking?'shake':''}`}>
-      <ShoppingCart color="#1f2937" className="text-gray-800" />
-      <span className={`rounded-full h-6 w-6 px-2 text-center flex items-center justify-between -mt-2 bg-gray-800 text-white ${className}`}>
+    <div className={`flex md:py-1  cursor-pointer `}>
+      <ShoppingCart color="#1f2937" className={`text-gray-800 ${isShaking?'shake':''}`} />
+      <span className={`rounded-full h-6 w-6 px-1  text-center  items-center justify-between -mt-2 bg-gray-800 text-white ${className}`}>
         {cartItems.length}
       </span>
     </div>

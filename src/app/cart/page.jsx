@@ -31,13 +31,14 @@ const Cart = () => {
   return isEmpty ? (
     <EmptyCart />
   ) : (
-    <div className='mx-auto md:px-40 h-full bg-backgroundLight  px-8 dark:bg-mainDark '>
-      <div className='mx-auto max-w-2xl py-8 lg:max-w-7xl'>
+    <div className='mx-auto md:px-40 h-full bg-backgroundLight  px-1 dark:bg-mainDark '>
+      <div className='mx-5 max-w-2xl py-8 lg:max-w-7xl'>
         <h1 className='text-3xl  tracking-tight text-mainDark dark:text-textDark sm:text-4xl'>
           Booking details
         </h1>
         <div className='mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16'>
           <section
+            className=""
             aria-labelledby='cart-heading'
             className='md:rounded-2xl rounded-xl -mt-4  lg:col-span-8'>
             <h2 id='cart-heading' className='sr-only'>
@@ -167,12 +168,12 @@ const Cart = () => {
                       onClick={() => dispatch(clearCart())}
                       text={
                         <span className='flex justify-around'>
-                          <span className='md:text-xs text-lg ml-2 font-medium '>
+                          <span className='md:text-xs text-lg ml-2 md:font-medium '>
                             Checkout
                           </span>
                         </span>
                       }
-                      className='flex  bg-red-500 w-full text-white justify-center items-center rounded-xl space-x-1 px-4  py-2 '></Button>
+                      className='flex  bg-red-500 w-full text-white justify-center items-center rounded-full space-x-1 md:px-4  md:py-2 '></Button>
                   </Link>
                 </div>
               </div>

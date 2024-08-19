@@ -7,7 +7,7 @@ export default function Home() {
   const session = true;
 
   return (
-    <main className='h-full  flex flex-col-reverse text-mainDark dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-4 md:px-36   bg-backgroundLight dark:bg-backgroundDark '>
+    <main className='h-full  flex flex-col-reverse text-mainDark dark:text-red-200 md:flex-row items-center md:justify-between justify-center px-1 md:px-36   bg-backgroundLight dark:bg-backgroundDark '>
       <section className='text-left mb-8 mx-6 '>
         <h1 className='text-3xl md:text-7xl md:w-[650px] text-gradient-light dark:text-gradient-dark  font-semibold'>
           dive into the world of premium dining experience
