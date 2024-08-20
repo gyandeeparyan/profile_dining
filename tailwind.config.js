@@ -9,11 +9,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      
       },
       colors: {
+        scrollbarColor:"hsl(var(--button-color-light))",
         mainDark: "hsl(var(--main-color-dark))",
         accentDark: "hsl(var(--accent-color-dark))",
         highlightDark: "hsl(var(--highlight-color-dark))",
@@ -27,9 +26,8 @@ module.exports = {
         textLight: "hsl(var(--text-color-light))",
         backgroundLight: "hsl(var(--background-color-light))",
         buttonLight: "hsl(var(--button-color-light))",
-
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')({ nocompatible: true })],
 };

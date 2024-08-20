@@ -184,7 +184,7 @@ const Cart = () => {
                           </span>
                         </span>
                       }
-                      className='flex  bg-red-500 w-full md:rounded-b-lg md:rounded-t-none text-white justify-center items-center rounded-lg space-x-1 md:px-4  md:py-2 '></Button>
+                      className='flex   w-full md:rounded-b-lg md:rounded-t-none text-white justify-center items-center rounded-lg space-x-1 md:px-4  md:py-2 '></Button>
                   </Link> 
             </div>
           </section>

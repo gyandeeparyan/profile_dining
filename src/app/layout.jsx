@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html  className="dark" lang="en">
+    <html  className="dark scrollbar-thin scrollbar-thumb-scrollbarColor scrollbar-track-gray-200" lang="en">
       <head>
       <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>

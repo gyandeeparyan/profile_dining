@@ -60,7 +60,7 @@ const ResturantCard = ({
           
           <span className='mx-1'>{formatPrice((feeDetails.totalFee/10),'INR', 'en-IN')}</span>
         </p>
-       <Button onClick={handleAdd} text={`Add`} className="rounded-full bg-rose-500 dark:bg-rose-500 text-white"/>
+       <Button onClick={handleAdd} text={`Add`} className="rounded-full  text-white"/>
        
       </div>
     </div>
