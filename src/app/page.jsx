@@ -26,7 +26,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className='bg-red-100 md:bg-red-200 dark:bg-red-100 mx-5 mb-10 rounded-3xl'>
+      <div className='bg-red-100 md:bg-red-200 mt-10 md:mt-0 mx-5 mb-10 rounded-3xl'>
         <Image
           src={"https://illustrations.popsy.co/red/woman-eating-salad.svg"}
           alt='a man messaging'

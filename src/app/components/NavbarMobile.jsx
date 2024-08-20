@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Utensils } from "lucide-react";
+import { Home, Utensils ,Soup  } from "lucide-react";
 import CartIcon from "./CartIcon";
 import { useSelector, useDispatch } from "react-redux";
 import ThemeToggler from "@/app/components/themeToggler";
@@ -20,13 +20,13 @@ function NavbarMobile() {
       icon: <Home />,
     },
     {
-      name: "Restaurants",
+      name: "Food",
       href: "/product-listing",
       ariaLabel: "view resturants button",
-      icon: <Utensils />,
+      icon: pathname ==="/product-listing"?<Soup className="animate-utensilsSpin" />:<Utensils className=""/>,
     },
     {
-      name: "Theme",
+      name: isDark?"Light":"Dark",
       href: "",
       ariaLabel: "theme toggle button",
       icon: <ThemeToggler />,
@@ -60,7 +60,8 @@ function NavbarMobile() {
              }`}>
             <span className='sr-only'>{item.ariaLabel}</span>{" "}
             {/* Provides a screen reader only description */}
-            {item.icon}
+            <span className={``}>{item.icon}</span>
+          
           </Link>
         ))}
       </div>

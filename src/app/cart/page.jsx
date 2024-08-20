@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { CircleX } from "lucide-react";
 import Button from "../components/Button";
 import Link from "next/link";
@@ -21,6 +22,16 @@ const Cart = () => {
     { id: 2, code: "RAKHI20", amount: 20 },
     { id: 3, code: "RAKHI30", amount: 30 },
   ];
+  const [removingItemId, setRemovingItemId] = useState(null);
+  const [isRemoving, setIsRemoving] = useState(false);
+
+  const handleRemove = (product) => {
+    setRemovingItemId(product.id);
+    setTimeout(() => {
+      dispatch(removeItem(product));
+      setRemovingItemId(null); 
+    }, 300); 
+  };
 
   const dispatch = useDispatch();
   const items = useSelector((store) => store.cart.items);
@@ -31,14 +42,13 @@ const Cart = () => {
   return isEmpty ? (
     <EmptyCart />
   ) : (
-    <div className='mx-auto md:px-40 h-full bg-backgroundLight  px-1 dark:bg-mainDark '>
-      <div className='mx-5 max-w-2xl py-8 lg:max-w-7xl'>
+    <div className='mx-auto flex  md:px-40 h-full bg-backgroundLight   px-1 dark:bg-mainDark '>
+      <div className='mx-5 mt-15 md:mt-0 max-w-2xl py-8  lg:max-w-7xl'>
         <h1 className='text-3xl  tracking-tight text-mainDark dark:text-textDark sm:text-4xl'>
           Booking details
         </h1>
-        <div className='mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16'>
+        <div className='mt-12 lg:grid lg:grid-cols-12 lg:items-start pb-28 lg:gap-x-12 xl:gap-x-16'>
           <section
-            
             aria-labelledby='cart-heading'
             className='md:rounded-2xl rounded-xl -mt-4  lg:col-span-8'>
             <h2 id='cart-heading' className='sr-only'>
@@ -46,10 +56,16 @@ const Cart = () => {
             </h2>
             <ul
               role='list'
-              className=' divide-y divide-dashed dark:divide-textDark divide-mainDark '>
+              className={` divide-y divide-dashed dark:divide-textDark divide-mainDark  
+              }`}>
               {items?.map((product, productIdx) => (
                 <div key={product.id} className=' '>
-                  <li className='flex bg-red-200 rounded-lg my-3 px-6 py-6 sm:py-4  '>
+                  <li
+                    className={`flex bg-red-200 rounded-lg my-3 px-6 py-6 sm:py-4 ${
+                      removingItemId === product.id
+                        ? "animate-fadeOutSlideUp"
+                        : ""
+                    }`}>
                     {/* IMAGE */}
                     <div className='flex-shrink-0'>
                       <Image
@@ -62,51 +78,48 @@ const Cart = () => {
                     </div>
                     {/* NAME,PRICE ,+ - BUTTONS */}
                     <div className=' flex flex-1 flex-col  justify-between ml-8 sm:ml-6'>
-                     
-                        <div className="flex flex-col justify-center">
-                          <div className='flex justify-between'>
-                            <h3 className=' text-black line-clamp-1'>{product.name}</h3>
-                          </div>
-                          <div className='mt-1 flex text-sm'></div>
-                          <div className='mt-1 flex items-end'>
-                            <p className='text-sm font-medium text-gray-900'>
-                              {formatPrice(product.price, "INR", "en-IN")}
+                      <div className='flex flex-col justify-center'>
+                        <div className='flex justify-between'>
+                          <h3 className=' text-black line-clamp-1'>
+                            {product.name}
+                          </h3>
+                        </div>
+                        <div className='mt-1 flex text-sm'></div>
+                        <div className='mt-1 flex items-end'>
+                          <p className='text-sm font-medium text-gray-900'>
+                            {formatPrice(product.price, "INR", "en-IN")}
+                          </p>
+                        </div>
+                        <div className='text-sm mt-3'>
+                          <div className='min-w-24 flex '>
+                            <Button
+                              text={"-"}
+                              onClick={() => dispatch(decrease(product))}
+                              className='flex h-7 text-white bg-red-500 dark:bg-red-500 rounded-lg w-7 items-center justify-center'></Button>
+                            <p className='mx-1 h-7 flex items-center text-mainDark  text-center'>
+                              {product.amount} Person
                             </p>
+                            <Button
+                              text={"+"}
+                              onClick={() => dispatch(increase(product))}
+                              className='flex h-7 bg-emerald-500 dark:bg-emerald-500 rounded-lg text-white w-7 items-center justify-center'></Button>
                           </div>
-                          <div className='text-sm mt-3'>
-                            <div className='min-w-24 flex '>
-                              <Button
-                                text={"-"}
-                                onClick={() => dispatch(decrease(product))}
-                                className='flex h-7 text-white bg-red-500 dark:bg-red-500 rounded-lg w-7 items-center justify-center'></Button>
-                              <p className='mx-1 h-7 flex items-center text-mainDark  text-center'>
-                                {product.amount} Person
-                              </p>
-                              <Button
-                                text={"+"}
-                                onClick={() => dispatch(increase(product))}
-                                className='flex h-7 bg-emerald-500 dark:bg-emerald-500 rounded-lg text-white w-7 items-center justify-center'></Button>
-                            </div>
-                          </div>
-                        
+                        </div>
                       </div>
                     </div>
-                    
+
                     <Button
-                      onClick={() => dispatch(removeItem(product))}
+                      onClick={() => handleRemove(product)}
                       text={
                         <span className='flex'>
                           <CircleX
                             size={30}
                             className='text-mainDark font-thin  rounded-full'
                           />
-                          
                         </span>
                       }
-                      className=' rounded-full  h-[40px]  !bg-transparent text-mainDark items-center space-x-1  -mt-2 pr-0 pb-0 '></Button>
-
+                      className=' rounded-full  h-[40px]  !bg-transparent text-mainDark items-center   -mt-2 pr-0 pb-0 '></Button>
                   </li>
-                
                 </div>
               ))}
             </ul>
@@ -116,14 +129,11 @@ const Cart = () => {
 
           <section
             aria-labelledby='summary-heading'
-            className='mt-16 md:rounded-lg rounded-lg bg-red-200 lg:col-span-4 lg:mt-0 lg:p-0'>
+            className='mt-16 px-4 py-4   rounded-lg bg-red-200 lg:col-span-4 lg:mt-0 lg:p-0'>
             <div>
-              <h2
-                id='summary-heading'
-                className=' border-b border-mainDark px-4 py-3 text-lg font-medium text-gray-900 sm:p-4'>
-                Price Details
-              </h2>
-              <div className='px-3 '>
+             
+             
+              <div className='md:px-3 md:py-3 '>
                 <dl className=' space-y-1 px-1 py-2'>
                   <div className='flex items-center justify-between'>
                     <dt className='text-sm text-gray-800'>
@@ -162,21 +172,20 @@ const Cart = () => {
                   You will save {formatPrice(discount, "INR", "en-IN")} on this
                   order
                 </div>
-                <div className='px-4 pb-4'>
-                  <Link href={"/checkout"}>
+              
+              </div>
+              <Link href={"/checkout"}>
                     <Button
                       onClick={() => dispatch(clearCart())}
                       text={
                         <span className='flex justify-around'>
-                          <span className='md:text-xs text-lg ml-2 md:font-medium '>
+                          <span className='md:text-xs  text-sm ml-2 py-2 md:font-medium '>
                             Checkout
                           </span>
                         </span>
                       }
-                      className='flex  bg-red-500 w-full text-white justify-center items-center rounded-full space-x-1 md:px-4  md:py-2 '></Button>
-                  </Link>
-                </div>
-              </div>
+                      className='flex  bg-red-500 w-full md:rounded-b-lg md:rounded-t-none text-white justify-center items-center rounded-lg space-x-1 md:px-4  md:py-2 '></Button>
+                  </Link> 
             </div>
           </section>
         </div>

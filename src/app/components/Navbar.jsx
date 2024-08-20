@@ -9,6 +9,7 @@ import ThemeToggler from "@/app/components/themeToggler"
 const Navbar = () => {
 
   return (
+    <>
     <div class='sticky hidden lg:block md:px-36  w-full bg-red-300 dark:bg-red-300'>
       <div class=' flex max-w-7xl items-center justify-between  py-2 sm:px-6 '>
         <div class="inline-flex items-center space-x-2 rounded-xl  px-4 py-2">
@@ -50,7 +51,9 @@ const Navbar = () => {
       
       </div>
     </div>
-    
+
+
+    </>
   );
 };
 

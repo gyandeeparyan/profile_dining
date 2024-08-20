@@ -17,7 +17,7 @@ const ThemeToggler = () => {
 
   return (
     <button aria-label='theme toggle button' className="md:mr-4 " onClick={() => dispatch(toggleTheme())}>
-     {isDark ? <Sun color="#1f2937" /> : <Moon color="#1f2937" />}
+     {isDark ? <Sun className='animate-moonToSun' color="#1f2937" /> : <Moon className="animate-sunToMoon" color="#1f2937" />}
     </button>
   );
 };

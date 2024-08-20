@@ -49,6 +49,70 @@ body {
   animation: shake 0.3s ease-in-out; /* Shorter duration for more intensity */
 }
 
+@keyframes sunToMoon {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes moonToSun {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(-180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(-360deg) scale(1);
+  }
+}
+
+.animate-sunToMoon {
+  animation: sunToMoon 0.6s ease-in-out forwards;
+}
+
+.animate-moonToSun {
+  animation: moonToSun 0.6s ease-in-out forwards;
+}
+
+@keyframes utensilsSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+.animate-utensilsSpin {
+  animation: utensilsSpin 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeOutSlideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.animate-fadeOutSlideUp {
+  animation: fadeOutSlideUp 0.3s ease-in-out forwards;
+}
+
 body:not(.dark) .text-gradient-light {
   background: linear-gradient(to right, #f43f5e 0%, #330867 100%);
   -webkit-background-clip: text;
