@@ -8,8 +8,23 @@ Profile.fyi | Dining is a unique offering by Profile.fyi , which encourages ever
 
 ## Features
 
-- Product Listing - Light / Dark mode toggle - Add to cart
-- Remove from cart - Increase / Decrease Quantity - PWA
+- Product Listing - Display at least 6-10 products using a grid layout
+- Light / Dark mode toggle
+- Add to cart - Add the chosen product to a user's virtual shopping cart.
+  Update the cart icon or a dedicated counter to reflect the number of added items .
+  Provide visual feedback (e.g., animation) confirming the item's addition.
+
+- Cart page - Display a dedicated cart page where users can manage their selected products
+-  A list of all added products, displaying: Product image , Product name  , Product price
+   - Quantity selector (up/down buttons or input field) to adjust the amount of each item.
+   - "Remove Item" button to delete a specific product from the cart.
+   - Cart summary section:
+     - Subtotal: Calculate the total cost of all items in the cart based on their quantity and price.
+     - Discounts : Implement the ability to apply discounts on the total price. 
+     - Total price (including discounts): Display the final price the user needs to pay.
+     - Checkout button: This can redirect to a simulated checkout page or provide a message indicating successful cart addition.
+ 
+- Increase / Decrease Quantity 
   
 ## Why did I choose SWIGGY API ? Instead of some dummy free API avialable online?
 
