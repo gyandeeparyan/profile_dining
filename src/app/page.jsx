@@ -17,11 +17,11 @@ export default function Home() {
         </p>
         <div className='flex gap-2'>
           <Link href='/product-listing'>
-            <Button text={"Explore"} className=' rounded-lg mt-6  border-[1px] !border-rose-400 bg-rose-400 text-white md:mt-10'></Button>
+            <Button text={"Explore"} className=' rounded-lg mt-6  border-[1px] !border-buttonLight bg-buttonLight text-white md:mt-10'></Button>
           </Link>
           <Link href='/about'>
             
-            <Button aria-label="learn more" text={"Learn more"} className=' rounded-lg mt-6 !bg-transparent border-[1px] !border-rose-400  !text-rose-400 md:mt-10'></Button>
+            <Button aria-label="learn more" text={"Learn more"} className=' rounded-lg mt-6 !bg-transparent border-[1px] !border-buttonLight  !text-buttonLight md:mt-10'></Button>
           </Link>
         </div>
       </section>
