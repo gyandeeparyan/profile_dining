@@ -30,7 +30,7 @@ const Cart = () => {
     setTimeout(() => {
       dispatch(removeItem(product));
       setRemovingItemId(null); 
-    }, 300); 
+    }, 150); 
   };
 
   const dispatch = useDispatch();

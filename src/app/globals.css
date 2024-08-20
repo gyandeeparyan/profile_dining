@@ -110,7 +110,7 @@ body {
 }
 
 .animate-fadeOutSlideUp {
-  animation: fadeOutSlideUp 0.3s ease-in-out forwards;
+  animation: fadeOutSlideUp 0.15s ease-in-out forwards;
 }
 
 body:not(.dark) .text-gradient-light {

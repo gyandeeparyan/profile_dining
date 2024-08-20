@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./features/cartSlice";
-import resturantListingSlice from "./features/resturantListingSlice";
+import resturantListingSlice from "./features/dataSlice";
 import appSlice from "./features/appSlice"
+
 export function makeStore() {
   return configureStore({
     reducer: {
+    
       app:appSlice,
       cart: cartSlice,
-      resturantListing: resturantListingSlice,
+      data: resturantListingSlice,
     },
   });
 }

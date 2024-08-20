@@ -12,16 +12,14 @@ const initialState = {
 resturants:resturants,
 };
 
-const resturantListingSlice = createSlice({
-  name: "resturantListing",
+const dataSlice = createSlice({
+  name: "data",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value++;
-    },
+    
   },
  
 });
 
-export const { increment } = resturantListingSlice.actions;
-export default resturantListingSlice.reducer;
+export const { increment } = dataSlice.actions;
+export default dataSlice.reducer;
