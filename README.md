@@ -8,12 +8,14 @@ Profile.fyi | Dining is a unique offering by Profile.fyi , which encourages ever
 
 ## Features
 
-- Product Listing
-- Light / Dark mode toggle
-- Add to cart
-- Remove from cart
-- Increase / Decrease Quantity
-- PWA
+- Product Listing - Light / Dark mode toggle - Add to cart
+- Remove from cart - Increase / Decrease Quantity - PWA
+  
+## Why did I choose SWIGGY API ? Instead of some dummy free API avialable online?
+
+- To exhibit my ability to handle and properly integrate real world API .
+- Images are always available in optimised quality in this API .
+- No matter what the data is , I intented to exhibit my ability to manage state properly using redux tolkit and my abilities to create symmetric , clean & accessible web application. 
 
 ## Optimizations
 
